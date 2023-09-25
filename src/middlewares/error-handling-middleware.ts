@@ -51,7 +51,9 @@ export function handleApplicationErrors(
   }
 
   if (err.name === 'EnrollmentNotFoundError') {
-    return res.sendStatus(httpStatus.BAD_REQUEST);
+    return res.status(httpStatus.NOT_FOUND).send({
+      message: err.message,
+    });
   }
 
   if (err.name === 'InvalidCEPError') {

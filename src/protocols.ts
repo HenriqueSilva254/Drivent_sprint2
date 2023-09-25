@@ -26,3 +26,13 @@ export type AddressEnrollment = {
 export type CEP = {
   cep: string;
 };
+
+export type formaTickets = {
+  createdAt: string;
+  updatedAt: string;
+  id: number;
+  name: string;
+  price: number;
+  isRemote: boolean;
+  includesHotel: boolean;
+}
