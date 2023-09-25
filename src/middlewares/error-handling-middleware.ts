@@ -55,6 +55,11 @@ export function handleApplicationErrors(
       message: err.message,
     });
   }
+  if (err.name === 'EnrollmentBadrequests') {
+    return res.status(httpStatus.BAD_REQUEST).send({
+      message: err.message,
+    });
+  }
 
   if (err.name === 'InvalidCEPError') {
     return res.status(httpStatus.BAD_REQUEST).send(err.message);
