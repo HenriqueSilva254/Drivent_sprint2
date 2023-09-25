@@ -12,7 +12,7 @@ export async function tiketsTypes(req: AuthenticatedRequest, res: Response){
 export async function tikets(req: AuthenticatedRequest, res: Response){
     const {userId} = req
     const result = await tiketService.geTikets(userId)
-    return res.status(httpStatus.OK).send(result);
+    return res.status(httpStatus.OK).send(result[0]);
 }
 
 
@@ -21,5 +21,5 @@ export async function tiketsCreate(req: AuthenticatedRequest, res: Response){
     const {ticketTypeId} = req.body
     
     const result = await tiketService.PosTickets(userId, Number(ticketTypeId))
-    return res.status(httpStatus.OK).send(result);
+    return res.status(httpStatus.CREATED).send(result);
 }
